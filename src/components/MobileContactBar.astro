@@ -1,0 +1,8 @@
+---
+import {whatsappHref} from '../data/site';
+---
+<nav class="mobile-contact-bar" aria-label="Quick contact"><a href={whatsappHref}>WhatsApp <span aria-hidden="true">↗</span></a><a href={Astro.url.pathname==='/contact'?'#enquiry':'/contact'}>Start a Project <span aria-hidden="true">↗</span></a></nav>
+<script>
+const syncKeyboard=()=>document.body.classList.toggle('form-editing',document.activeElement instanceof HTMLInputElement||document.activeElement instanceof HTMLTextAreaElement||document.activeElement instanceof HTMLSelectElement);
+document.addEventListener('focusin',syncKeyboard);document.addEventListener('focusout',()=>setTimeout(syncKeyboard,0));
+</script>

@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import Button from '../components/Button.astro';
+import TextLink from '../components/TextLink.astro';
+import ArchMedia from '../components/ArchMedia.astro';
+import Marquee from '../components/Marquee.astro';
+---
+<Layout title="Design foundation review | Red Pumpkin Marketing" description="Local review of reusable RPM design components.">
+<section class="page-hero"><div class="container"><h1>The Uncommon P.<br/>A shared design language.</h1><p>Local design review. These are reusable interface components.</p><p>Service count demonstration: <span class="count-up" data-count-up>7</span> approved services.</p></div></section>
+<section class="section"><div class="container"><SectionHeader eyebrow="Buttons and links" title="Small details. A clear character."><p>Use a mouse to review the magnetic buttons and cursor. Keyboard focus works with the same controls.</p></SectionHeader><div class="actions"><Button href="#media">View the arch</Button><Button href="#moving-text" secondary>View moving text</Button><TextLink href="/">Back to homepage</TextLink></div></div></section>
+<section class="section" id="media"><div class="container"><SectionHeader eyebrow="Media" title="The Arch"><p>This is a clearly marked placeholder. Approved photographs or project screenshots can replace it.</p></SectionHeader><div style="max-width:440px"><ArchMedia caption="Placeholder — no client imagery supplied."/></div></div></section>
+<section class="section" id="moving-text"><div class="container"><SectionHeader eyebrow="Moving text" title="A little movement."><p>The strip can be paused. It stays still on mobile and with reduced motion.</p></SectionHeader><Marquee text="Made to stand out. Built to grow."/></div></section>
+</Layout>
+

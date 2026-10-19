@@ -1,0 +1,7 @@
+---
+import Icon from './Icon.astro';
+const { editorial=false }=Astro.props;
+const serviceIcons:Record<string,string>={branding:'brand','marketing-strategy':'target','website-development':'web','app-development':'app','performance-marketing':'megaphone','social-media':'social','creative-campaigns':'pen'};
+import { groups, services } from '../data/site';
+---
+<div class:list={["service-groups",{"service-editorial":editorial}]}>{groups.map((g,i)=><div class="service-group" id={g.id}>{editorial && <div class="service-preview" aria-hidden="true"><Icon name={['brand','web','megaphone'][i]}/></div>}<h3><span>0{i+1}</span> {g.name}</h3><p>{g.description}</p><div>{services.filter(s=>s.group===i).map(s=><a class="service-row" href={'/services/'+s.slug}><Icon name={serviceIcons[s.slug]}/><span>{s.name}</span><span aria-hidden="true">↗</span></a>)}</div></div>)}</div>

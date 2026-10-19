@@ -1,0 +1,30 @@
+---
+import TextLink from './TextLink.astro';
+
+import Icon from './Icon.astro';
+import { projects } from '../data/site';
+const { carousel = false, filters = false } = Astro.props;
+---
+{filters && <div class="filters"><label>Industry<select id="industry"><option value="">All Industries</option>{projects.map(p=><option>{p.industry}</option>)}</select></label><label>Expertise<select id="expertise"><option value="">All Expertise</option>{[...new Set(projects.flatMap(p=>p.expertise))].map(e=><option>{e}</option>)}</select></label><button class="text-link" id="clear-filters">Clear Filters</button><p id="filter-count" role="status">Showing 4 of 4 projects.</p></div>}
+<div class:list={['project-gallery',{carousel}]} id="project-gallery" role="region" aria-label="Selected projects">{projects.map((p,i)=><article class={'project project-'+i} data-project data-industry={p.industry} data-expertise={p.expertise.join('|')}>
+  <a data-cursor="View" class="project-title" href={'/work/'+p.slug}><span class="project-number">0{i+1} / {p.industry}</span><Icon name={['building','factory','education','leaf'][i]} class="project-symbol"/><h3>{p.name}</h3>{(carousel || filters) && <span class="project-placeholder"><span class="placeholder-window" aria-hidden="true"><i></i><i></i><i></i></span><span>Project screenshot placeholder</span><small>Approved imagery to follow</small></span>}<span class="project-arrow" aria-hidden="true">↗</span></a>
+  <div class="project-copy"><h4>{p.headline}</h4><p>{p.description}</p><TextLink class="text-link" href={'/work/'+p.slug}>Explore {p.name} <span aria-hidden="true">↗</span></TextLink></div>
+</article>)}</div>
+{carousel && <div class="carousel-controls"><span class="carousel-position" aria-live="polite">01 / 04</span><div><button data-slide="-1" aria-label="Previous project" aria-controls="project-gallery">←</button><button data-slide="1" aria-label="Next project" aria-controls="project-gallery">→</button></div></div>}
+{filters && <div id="no-projects" hidden><h3>Nothing matches those filters just yet.</h3><p>Try another category or return to the full collection.</p><button id="reset-projects" class="button">View All Projects ↗</button></div>}
+<script>
+const gallery = document.querySelector<HTMLElement>('#project-gallery');
+if(gallery){
+ const cards = [...gallery.querySelectorAll<HTMLElement>('[data-project]')];
+ const buttons = [...document.querySelectorAll<HTMLButtonElement>('[data-slide]')];
+ const current=()=>cards.reduce((best,c,i)=> Math.abs(c.offsetLeft-gallery.scrollLeft)<Math.abs(cards[best].offsetLeft-gallery.scrollLeft)?i:best,0);
+ let requestedIndex:number|null=null; let settleTimer:ReturnType<typeof setTimeout>;
+ const update=()=>{const i=current();const pos=document.querySelector('.carousel-position');if(pos)pos.textContent=`0${i+1} / 04`;buttons.forEach(b=>b.disabled=Number(b.dataset.slide)<0?(requestedIndex??i)===0:(requestedIndex??i)===cards.length-1);};
+ buttons.forEach(b=>b.addEventListener('click',()=>{const i=Math.max(0,Math.min(cards.length-1,(requestedIndex??current())+Number(b.dataset.slide)));requestedIndex=i;update();gallery.scrollTo({left:cards[i].offsetLeft,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});}));
+ gallery.addEventListener('scroll',()=>{update();clearTimeout(settleTimer);settleTimer=setTimeout(()=>{requestedIndex=null;update();},150);},{passive:true});window.addEventListener('resize',update);update();
+ const industry=document.querySelector<HTMLSelectElement>('#industry');const expertise=document.querySelector<HTMLSelectElement>('#expertise');
+ const filter=()=>{const old=new Map(cards.map(c=>[c,{rect:c.getBoundingClientRect(),hidden:c.hidden}]));let count=0;cards.forEach(c=>{c.hidden=!!((industry?.value&&c.dataset.industry!==industry.value)||(expertise?.value&&!c.dataset.expertise?.split('|').includes(expertise.value)));if(!c.hidden)count++;});const output=document.querySelector('#filter-count');if(output)output.textContent=`Showing ${count} of 4 projects.`;const empty=document.querySelector<HTMLElement>('#no-projects');if(empty)empty.hidden=count>0;if(!matchMedia('(prefers-reduced-motion: reduce)').matches)cards.filter(c=>!c.hidden).forEach(c=>{c.getAnimations().forEach(a=>a.cancel());const before=old.get(c)!;const after=c.getBoundingClientRect();c.animate(before.hidden?[{opacity:0,transform:'translateY(18px)'},{opacity:1,transform:'translateY(0)'}]:[{transform:`translate(${before.rect.left-after.left}px,${before.rect.top-after.top}px)`},{transform:'translate(0,0)'}],{duration:450,easing:'cubic-bezier(.22,1,.36,1)'});});};
+ industry?.addEventListener('change',filter);expertise?.addEventListener('change',filter);
+ ['clear-filters','reset-projects'].forEach(id=>document.getElementById(id)?.addEventListener('click',()=>{if(industry)industry.value='';if(expertise)expertise.value='';filter();}));
+}
+</script>

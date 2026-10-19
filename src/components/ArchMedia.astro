@@ -1,0 +1,6 @@
+---
+interface Props { src?:string; alt?:string; kind?:'image'|'video'; poster?:string; captions?:string; caption?:string; placeholder?:string; width?:number; height?:number; }
+const {src,alt='',kind='image',poster,captions,caption,placeholder='Approved project image to be supplied.',width=800,height=1000}=Astro.props;
+if(src && !alt.trim()) throw new Error('ArchMedia needs a meaningful image description.');
+---
+<figure class="arch-media"><div class="arch-media-mask">{src ? kind==='video' ? <video controls playsinline preload="none" poster={poster} aria-label={alt}><source src={src}/>{captions && <track kind="captions" src={captions} srclang="en" label="English" default/>}<slot name="transcript"/></video> : <img src={src} alt={alt} width={width} height={height} loading="lazy" decoding="async"/> : <div class="arch-placeholder"><span>Image placeholder</span><p>{placeholder}</p></div>}</div>{caption && <figcaption>{caption}</figcaption>}</figure>

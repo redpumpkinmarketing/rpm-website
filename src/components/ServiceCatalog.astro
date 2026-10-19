@@ -1,0 +1,9 @@
+---
+import {groups,services,pages} from '../data/site';
+import Icon from './Icon.astro';
+import TextLink from './TextLink.astro';
+import { labeledCopy } from '../data/presentation';
+const icons=['brand','target','web','app','megaphone','social','pen'];
+---
+<section class="section service-catalog"><div class="container catalog-layout"><nav class="catalog-nav" aria-label="Service groups"><p class="eyebrow">Explore capabilities</p>{groups.map((g,i)=><a href={'#'+g.id}><span>0{i+1}</span>{g.name}<span aria-hidden="true">↗</span></a>)}</nav><div class="catalog-groups">{groups.map(g=><section id={g.id}><h2>{g.name}</h2>{services.filter(s=>s.group===groups.indexOf(g)).map(s=>{const p=pages.find(p=>p.route==='/services/'+s.slug)!;const tags=p.sections.find(s=>/CAPABILITIES/.test(s.label))?.lines.filter(l=>!l.startsWith('Eyebrow:')).map(l=>labeledCopy(l)?.[1]).filter(Boolean).slice(0,3)??[];return <article class="service-feature"><Icon name={icons[services.indexOf(s)]}/><h3>{s.name}</h3><p>{p.h1}</p><ul class="service-tags" aria-label="Selected capabilities">{tags.map(t=><li>{t}</li>)}</ul><TextLink href={'/services/'+s.slug}>Explore {s.name} ↗</TextLink></article>;})}</section>)}</div></div></section>
+

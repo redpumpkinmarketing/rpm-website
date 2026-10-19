@@ -1,0 +1,8 @@
+---
+import Eyebrow from './Eyebrow.astro';
+import Button from './Button.astro';
+import TextLink from './TextLink.astro';
+import { homepage as h, whatsappHref, emailHref } from '../data/site';
+const {home=false}=Astro.props;
+---
+<section class="section final-cta ink" data-home-section={home ? "11" : undefined} aria-labelledby="cta-title"><div class="container cta-grid" data-reveal><div><Eyebrow text={h[10].eyebrow}/><h2 id="cta-title">Let's make something <em>worth noticing.</em></h2></div><div><p>{h[10].lines[2]}</p><div class="actions"><Button href={Astro.url.pathname==="/contact"?"#enquiry":"/contact"} class="round-project-button">Start a Project</Button><div class="cta-contact-links"><TextLink href={whatsappHref}>Chat on WhatsApp</TextLink><TextLink href={emailHref}>Email us</TextLink><TextLink class="text-link" href="/services">Explore Our Services ↗</TextLink></div></div><p class="support">Made to stand out. Built to grow.</p></div></div></section>

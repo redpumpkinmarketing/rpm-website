@@ -1,0 +1,14 @@
+---
+const cells=Array.from({length:48},(_,i)=>({i,row:Math.floor(i/8),col:i%8}));
+let order=0;
+---
+<div class="arch-field">
+ <div class="arch-field-art" role="img" aria-label="Forty grey arches surround one distinctive crimson RPM arch">
+  <svg class="field-orbits" viewBox="0 0 540 410" fill="none"><path d="M40 22C145 0 392 0 500 22M30 380C165 408 409 408 510 380M22 75C2 155 2 255 22 330M518 75C538 155 538 255 518 330"/><path d="M8 316l14 14 9-17M498 375l12 5-5 12"/></svg>
+  <div class="arch-grid">{cells.map(({row,col})=><div class="arch-cell" data-arch-cell data-row={row} data-col={col}>{!(row>=2&&row<=3&&col>=2&&col<=5)&&<div class="arch-rise" style={`--arch-delay:${order++*15}ms`}><div class="grey-arch"/></div>}</div>)}</div>
+  <div class="standout-entry"><div class="standout-follow"><div class="standout-arch"><img src="/brand/RPM-Icon-White.svg" alt="" width="120" height="120"/><span>THE UNCOMMON P</span></div></div></div>
+ </div>
+ <div class="field-footer"><svg class="note-arrow" viewBox="0 0 70 42" fill="none" aria-hidden="true"><path d="M3 3c4 26 28 32 60 19m-12-6 14 5-7 13"/></svg><p class="field-note" aria-hidden="true"><span>Think.</span> <span>Create.</span> <span>Connect.</span><svg viewBox="0 0 210 12" preserveAspectRatio="none"><path d="M2 7Q86 1 206 6"/></svg></p><button class="field-motion-toggle" type="button" aria-pressed="false">Pause motion</button></div>
+</div>
+<script>import '../scripts/arch-field';</script>
+

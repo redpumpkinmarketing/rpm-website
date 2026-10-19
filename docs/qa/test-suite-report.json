@@ -1,0 +1,54 @@
+[
+  {
+    "suite": "browser-qa",
+    "passed": true
+  },
+  {
+    "suite": "conversion-qa",
+    "passed": true
+  },
+  {
+    "suite": "accessibility-qa",
+    "passed": true
+  },
+  {
+    "suite": "full-audit",
+    "passed": true
+  },
+  {
+    "suite": "foundation-qa",
+    "passed": true
+  },
+  {
+    "suite": "hero-qa",
+    "passed": true
+  },
+  {
+    "suite": "sections-qa",
+    "passed": true
+  },
+  {
+    "suite": "inner-qa",
+    "passed": true
+  },
+  {
+    "suite": "inner-open-a11y",
+    "passed": true
+  },
+  {
+    "suite": "creative-qa",
+    "passed": true
+  },
+  {
+    "suite": "interaction-review",
+    "passed": true
+  },
+  {
+    "suite": "motion-qa",
+    "passed": true
+  },
+  {
+    "suite": "motion-routes",
+    "passed": true
+  }
+]

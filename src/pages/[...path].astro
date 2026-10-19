@@ -1,0 +1,54 @@
+---
+import Eyebrow from '../components/Eyebrow.astro';
+import TextLink from '../components/TextLink.astro';
+
+import ServiceArtwork from '../components/ServiceArtwork.astro';
+import ServiceCatalog from '../components/ServiceCatalog.astro';
+import DeviceMockup from '../components/DeviceMockup.astro';
+import ArchMedia from '../components/ArchMedia.astro';
+import InsightsArtwork from '../components/InsightsArtwork.astro';
+import '../styles/inner-pages.css';
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+
+import Projects from '../components/Projects.astro';
+import ContentSection from '../components/ContentSection.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { pages, projects } from '../data/site';
+import { primaryAction } from '../data/presentation';
+export function getStaticPaths(){return pages.filter(p=>p.route!=='/').map(page=>({params:{path:page.route.slice(1)},props:{page}}));}
+const { page:p }=Astro.props;
+const hero=p.sections[0];
+const primary=primaryAction(hero.lines,p.route);
+const heroText=hero.lines.filter(l=>l&&!/^(Eyebrow:|Primary CTA:|Secondary CTA:|Support|Tags:)/.test(l)&&l!==p.h1);
+const isCase=p.route.startsWith('/work/');
+const caseIndex=projects.findIndex(c=>p.route==='/work/'+c.slug);
+const next=projects[(caseIndex+1)%projects.length];
+const serviceDetail=p.route.startsWith('/services/');
+const scope=p.sections.flatMap(s=>s.lines).find(l=>l.startsWith('Confirmed scope:'))?.replace('Confirmed scope: ','');
+const kind=isCase?'case':serviceDetail?'service':p.route.slice(1);
+const caseDeliverables:Record<string,string>={'etpra-group':'Corporate website, communications and technical support', 'hills-polymers':'Public website and custom quotation CRM', 'india-career-counseling':'Public website, education CRM, branding and marketing', 'loka-samabaya-pratisthan':'Website and supporting backend'};
+const sections=p.sections.slice(1).filter(s=>!s.label.includes('FOOTER'));
+---
+<Layout {...p}><div class:list={['inner-page','inner-'+kind]}>
+{p.route!=="/contact" && <section class="page-hero"><div class="container page-hero-grid"><div class="page-hero-copy"><Eyebrow text={hero.lines[0].replace('Eyebrow: ','')}/><h1>{p.h1}</h1><div class="intro-copy">{heroText.map(l=><p>{l}</p>)}</div><div class="actions"><Button href={primary.href}>{primary.label}</Button><Button href={p.route==='/work'?'/contact':'/work'} secondary>{p.route==='/work'?'Start a Project':'Explore Our Work'}</Button></div></div>{serviceDetail && <ServiceArtwork name={p.route.split('/').pop()!}/>}
+{isCase && <DeviceMockup client={projects[caseIndex].name}/>}
+{p.route==='/about' && <ArchMedia placeholder="Approved founder / team photo to be supplied." caption="Founder / team photo placeholder — approved photography to be supplied."/>}
+{p.route==='/insights' && <InsightsArtwork/>}</div></section>}
+{p.route==='/work' && <section class="section" id="projects"><div class="container"><Eyebrow text="Explore the work"/><h2 style="margin-bottom:36px">Every project has its own story.</h2><Projects filters/></div></section>}
+{p.route==='/services' && <ServiceCatalog/>}
+{p.route==='/contact' && <ContactForm/>}
+{isCase && <section class="case-glance container" aria-labelledby="glance-title"><h2 id="glance-title">At a glance</h2><dl><div><dt>Scope</dt><dd>{scope}</dd></div><div><dt>Deliverables</dt><dd>{caseDeliverables[p.route.split('/').pop()!]}</dd></div><div><dt>Platform</dt><dd>Web</dd></div></dl></section>}
+{p.route==='/insights' && <section class="section" id="reading-room"><div class="container"><Eyebrow text="The reading room"/><h2>First perspectives coming soon.</h2><div class="editorial-empty"><span class="editorial-symbol" aria-hidden="true">“</span><p>Our first perspectives are being prepared. For now, explore the work behind the ideas or get to know the agency.</p><TextLink class="text-link" href="/work">Explore Our Work ↗</TextLink></div><div class="signup-placeholder"><h3>A place for future perspectives.</h3><p>Email signup is not connected yet. No email addresses are collected in this preview.</p><label>Email address<input type="email" disabled placeholder="Signup coming soon" aria-describedby="signup-status"/></label><button class="button" type="button" disabled>Notify me</button><p id="signup-status">Signup placeholder · awaiting approved email service and privacy policy.</p></div></div></section>}
+{sections.filter(s=>{
+ if(/FINAL CTA/.test(s.label))return false;
+ if(p.route==='/work')return !/^0[234] /.test(s.label);
+ if(p.route==='/services')return !/^0[345] /.test(s.label);
+ if(p.route==='/contact')return /FAQ/.test(s.label);
+ if(p.route==='/insights')return !/^0[345] /.test(s.label);
+ return true;
+}).map((section,index)=><ContentSection section={section} index={index+1} route={p.route}/>)}
+{isCase && <section class="section next-case ink"><div class="container next-case-grid"><div><Eyebrow text="Next project"/><h2>{next.name}</h2><p>{next.headline}</p><Button href={'/work/'+next.slug}>Explore {next.name}</Button></div><a href={'/work/'+next.slug} data-cursor="View" aria-label={'View '+next.name}><DeviceMockup client={next.name}/></a></div></section>}
+</div></Layout>
+<script>import '../scripts/inner-pages';</script>
+

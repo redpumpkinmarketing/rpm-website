@@ -1,0 +1,22 @@
+---
+import Icon from './Icon.astro';
+interface Props { theme?:string; compact?:boolean; }
+const {theme='home',compact=false}=Astro.props;
+const map:Record<string,[string,string,string]>={
+ home:['brand','web','megaphone'],branding:['brand','pen','spark'],'marketing-strategy':['target','search','chart'],
+ 'website-development':['web','network','pen'],'app-development':['app','web','network'],
+ 'performance-marketing':['target','megaphone','chart'],'social-media':['social','pen','megaphone'],
+ 'creative-campaigns':['megaphone','spark','pen'],work:['pen','web','brand'],services:['brand','web','megaphone'],
+ about:['network','spark','chat'],insights:['pen','search','chat'],contact:['chat','pen','globe'],
+ 'etpra-group':['building','web','social'],'hills-polymers':['factory','web','network'],
+ 'india-career-counseling':['education','web','network'],'loka-samabaya-pratisthan':['leaf','globe','web'],technology:['web','app','network']
+};
+const icons=map[theme]||map.home;
+---
+<div class:list={['creative-scene',{compact}]} aria-hidden="true">
+ <svg class="scene-lines" viewBox="0 0 460 380" fill="none"><circle cx="234" cy="194" r="142" stroke="currentColor" stroke-opacity=".18"/><ellipse cx="234" cy="194" rx="201" ry="81" transform="rotate(-27 234 194)" stroke="currentColor" stroke-opacity=".24"/><path d="M32 300h32m-16-16v32M377 72h26m-13-13v26" stroke="currentColor"/><circle cx="348" cy="297" r="6" fill="#D50032"/><circle cx="106" cy="69" r="4" fill="currentColor"/><path d="m339 139 30-31m-12 0h12v12M80 220l35-12" stroke="#D50032" stroke-width="2"/></svg>
+ <div class="scene-core">{theme==='home'?<img src="/brand/RPM-Icon-White.svg" width="140" height="140" alt=""/>:<Icon name={icons[0]}/>}<span>{theme==='home'?'THE UNCOMMON P':'IDEAS INTO ACTION'}</span></div>
+ <div class="scene-tile scene-tile-a"><div class="mini-window"><i></i><i></i><i></i></div><Icon name={icons[1]}/><div class="drawn-lines"><i></i><i></i></div></div>
+ <div class="scene-tile scene-tile-b"><Icon name={icons[2]}/><span class="scene-dot"></span></div>
+ <div class="scene-stamp"><Icon name="spark"/><span>Think.<br/>Create.<br/>Connect.</span></div>
+</div>

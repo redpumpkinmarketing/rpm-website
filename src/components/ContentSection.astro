@@ -1,0 +1,33 @@
+---
+import Eyebrow from './Eyebrow.astro';
+import TextLink from './TextLink.astro';
+import Icon from './Icon.astro';
+import ArchMedia from './ArchMedia.astro';
+import { sectionPresentation, labeledCopy } from '../data/presentation';
+interface Props { section:{label:string;lines:string[]};index:number;route:string; }
+const {section,index,route}=Astro.props;
+const {heading,faq,eyebrow,body}=sectionPresentation(section);
+const isCase=route.startsWith('/work/');
+const story=isCase&&/CHALLENGE|APPROACH|DELIVERED SOLUTION/.test(section.label);
+const deliverables=/CAPABILITIES & DELIVERABLES|EXECUTION|OUR STANDARDS/.test(section.label);
+const process=/HOW WE WORK/.test(section.label);
+const values=route==='/about'&&/WHO WE ARE/.test(section.label);
+const items=process?body.flatMap(l=>l.split(/;\s*|\.\s+(?=(?:Research|Strategise|Create|Launch|Improve):)/)):body;
+const validUrl=(line:string)=>line.match(/→ (\/[^\s);]*)/)?.[1]?.replace(/[.,;]$/,'');
+---
+<section class:list={['editorial-section',{'story-chapter':story,'story-reverse':story&&/APPROACH/.test(section.label),'deliverable-section':deliverables,'process-section':process,'faq-section':faq,'values-section':values}]} id={'chapter-'+index}>
+<div class="container editorial-layout"><div class="chapter-heading"><Eyebrow text={deliverables&&route.startsWith('/services/')?'What you get':eyebrow}/><h2>{heading}</h2></div>
+<div class:list={['editorial-body',{'deliverable-grid':deliverables,'process-strip':process,'value-grid':values}]}>
+{items.map((line,i)=>{
+ const url=validUrl(line)||(route==='/contact'&&/CTA:.*scroll to form/.test(line)?'#enquiry':undefined);
+ if(/^(Primary CTA:|Secondary CTA:|CTA:|Section CTA:)/.test(line))return url?<div class="copy-action"><TextLink href={url}>{line.split(': ').slice(1).join(': ').split(' → ')[0].replace(/\s*\(scroll to form\)/,'')}</TextLink></div>:null;
+ if(faq&&line.includes('?')){const at=line.indexOf('?');return <details class="smooth-faq"><summary>{line.slice(0,at+1)}<span aria-hidden="true">+</span></summary><div class="faq-answer"><p>{line.slice(at+1).trim()}</p></div></details>;}
+ const clean=line.split(' → ')[0];const label=labeledCopy(clean);
+ if(values&&label)return <details class="value-card"><summary><Icon name={['spark','pen','target','network'][i-1]}/><strong>{label[1]}</strong><span aria-hidden="true">+</span></summary><div class="faq-answer"><p>{label[2]}</p></div></details>;
+ if(process){const part=clean.replace(/^\d+\s*/,'');const split=part.match(/^(Discover|Research|Strategise|Create|Launch|Improve):?\s*(.*)$/s);return <div class="process-step"><span class="step-index">{String(i+1).padStart(2,'0')}</span><h3>{split?.[1]??'Step '+(i+1)}</h3><p>{split?.[2]??part}</p></div>;}
+ if(label)return <div class="label-card"><Icon name={deliverables?'spark':'arrow'}/><div><h3>{label[1]}</h3><p>{label[2]}</p>{url&&<TextLink href={url}>Explore ↗</TextLink>}</div></div>;
+ if(url)return <div class="related-card"><TextLink href={url}>{clean}</TextLink></div>;
+ return <div class="copy-block"><p>{line}</p></div>;
+})}</div>
+{story&&<ArchMedia caption="Project image placeholder — approved screenshot to be supplied."/>}
+</div></section>

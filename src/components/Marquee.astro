@@ -1,0 +1,5 @@
+---
+interface Props { text:string; }
+const {text}=Astro.props;
+---
+<div class="marquee" data-marquee><p class="sr-only">{text}</p><div class="marquee-track" aria-hidden="true">{[0,1].map(()=> <span>{text} <i>↗</i> <span class="marquee-repeat">{text} <i>↗</i></span> </span>)}</div><button type="button" class="marquee-toggle" aria-pressed="false">Pause moving text</button></div>

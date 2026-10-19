@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "routes": 17,
+  "checks": [
+    "Shared CTA",
+    "Responsive layouts",
+    "Service selection",
+    "Step validation and preserved values",
+    "Disabled unconfigured submission",
+    "Production notice hidden",
+    "Mobile contact bar",
+    "Mocked Formspree and Web3Forms success",
+    "Mocked failure preserves data",
+    "No real submissions",
+    "Accessibility all steps"
+  ],
+  "errors": []
+}

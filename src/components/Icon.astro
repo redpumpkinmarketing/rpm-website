@@ -1,0 +1,26 @@
+---
+interface Props { name?: string; class?: string; }
+const {name='spark', class:className=''}=Astro.props;
+const paths:Record<string,string[]>={
+ brand:['M12 3 3 8l9 5 9-5-9-5Z','m3 12 9 5 9-5','m3 16 9 5 9-5'],
+ target:['M21 11a9 9 0 1 1-8-8','M16 11a4 4 0 1 1-3-3','m12 12 9-9','M16 3h5v5'],
+ web:['M3 4h18v16H3z','M3 9h18','M6 6.5h.1m3 0h.1','m9 12-3 3 3 3m6-6 3 3-3 3'],
+ app:['M7 2h10v20H7z','M10 5h4m-3 14h2','m10 10 2 2 2-2'],
+ megaphone:['M3 10h5l12-5v14L8 14H3z','m8 14 2 7H6l-2-7','M8 10v4'],
+ social:['M3 4h18v13H9l-5 4v-4H3z','M7 8h10M7 12h6'],
+ pen:['m4 20 1-6L16 3l5 5L10 19l-6 1Z','m13 6 5 5','m5 14 5 5'],
+ spark:['m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5L12 2Z'],
+ network:['M9 4h6v6H9zM2 16h6v6H2zM16 16h6v6h-6z','M12 10v3H5v3m7-3h7v3'],
+ globe:['M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z','M3 12h18','M12 3c5 5 5 13 0 18-5-5-5-13 0-18Z'],
+ building:['M4 21V3h10v18M14 9h6v12M2 21h20','M7 7h4m-4 4h4m-4 4h4m6-2h1m-1 4h1'],
+ factory:['M3 21V10l6 3V8l6 5V3h4l2 18H3Z','M7 17h1m4 0h1m4 0h1'],
+ education:['m2 8 10-5 10 5-10 5L2 8Z','M6 10v7c4 3 8 3 12 0v-7M22 8v9'],
+ leaf:['M20 3C5 1 2 9 6 15s16 7 14-12Z','M3 22 16 9m-8 8v-6m0 6h6'],
+ arrow:['M4 12h16m-6-6 6 6-6 6'],
+ search:['M16 10a6 6 0 1 1-12 0 6 6 0 0 1 12 0Z','m15 15 6 6'],
+ launch:['M14 3h7v7l-9 9-7-7 9-9Z','m5 12-3 2v5h5l2-3','M16 7h.01'],
+ chart:['M4 3v17h17','m7 14 4-4 4 2 6-7'],
+ chat:['M4 4h16v12h-8l-6 5v-5H4V4Z','M8 8h8m-8 4h5']
+};
+---
+<svg class:list={['line-icon',className]} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{(paths[name]||paths.spark).map(d=><path d={d}/>)}</svg>

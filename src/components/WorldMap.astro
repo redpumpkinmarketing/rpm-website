@@ -1,0 +1,7 @@
+---
+// Original schematic silhouettes; decorative only, not a client-location map.
+const lands=[[[90,90],[150,55],[245,65],[290,110],[245,150],[200,175],[185,225],[150,195],[135,150],[85,125]],[[220,225],[275,245],[300,285],[270,350],[240,400],[225,335],[200,275]],[[425,90],[475,65],[505,95],[485,130],[440,135]],[[440,150],[510,140],[550,195],[520,265],[480,300],[445,245],[420,190]],[[505,85],[600,50],[745,65],[860,100],[845,160],[780,170],[720,205],[695,255],[660,200],[625,160],[575,145],[540,120]],[[745,285],[815,270],[860,315],[840,345],[775,335]],[[325,40],[370,25],[380,75],[350,100]]];
+const inside=(x:number,y:number,poly:number[][])=>{let yes=false;for(let i=0,j=poly.length-1;i<poly.length;j=i++){const [xi,yi]=poly[i],[xj,yj]=poly[j];if((yi>y)!==(yj>y)&&x<(xj-xi)*(y-yi)/(yj-yi)+xi)yes=!yes;}return yes;};
+const dots=[];for(let y=25;y<410;y+=13)for(let x=60;x<910;x+=13)if(lands.some(p=>inside(x,y,p)))dots.push([x,y]);
+---
+<div class="world-map" data-scroll-progress aria-hidden="true"><svg viewBox="0 0 960 440"><g class="world-dots">{dots.map(([cx,cy])=><circle cx={cx} cy={cy} r="2.2"/>)}</g><g class="world-arcs" fill="none"><path pathLength="1" d="M695 220Q425 -30 170 120M695 220Q560 10 465 105M695 220Q785 160 815 310"/></g><circle class="india-point" cx="695" cy="220" r="5"/><circle class="india-halo" cx="695" cy="220" r="13" fill="none"/></svg></div>

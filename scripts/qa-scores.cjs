@@ -1,0 +1,6 @@
+const fs=require('node:fs');
+const routes=JSON.parse(fs.readFileSync('src/data/pages.json')).map(p=>p.name==='INSIGHTS'?'/insights':p.route);
+const scores=routes.map(route=>{const slug=route==='/'?'home':route.slice(1).replaceAll('/','-');const r=JSON.parse(fs.readFileSync(`docs/qa/lighthouse/${slug}.json`));return {route,performance:Math.round(r.categories.performance.score*100),accessibility:Math.round(r.categories.accessibility.score*100),report:`lighthouse/${slug}.html`,timestamp:r.fetchTime,error:r.runtimeError};});
+fs.writeFileSync('docs/qa/lighthouse-summary.json',JSON.stringify(scores,null,2));
+fs.writeFileSync('docs/qa/lighthouse-scores.md','# Mobile Lighthouse results\n\nLocal production preview, Lighthouse 12.8.2 with default mobile simulated throttling. Motion enabled. Each page tested once in the final sequential run.\n\n| Page | Performance | Accessibility | Full report |\n| --- | ---: | ---: | --- |\n'+scores.map(s=>`| ${s.route} | ${s.performance} | ${s.accessibility} | [Open](${s.report}) |`).join('\n')+'\n');
+console.log(JSON.stringify({pages:scores.length,performanceMin:Math.min(...scores.map(s=>s.performance)),performanceMax:Math.max(...scores.map(s=>s.performance)),accessibilityMin:Math.min(...scores.map(s=>s.accessibility)),failures:scores.filter(s=>s.performance<90||s.accessibility<100||s.error)},null,2));

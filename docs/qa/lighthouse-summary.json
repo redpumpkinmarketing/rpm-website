@@ -1,0 +1,121 @@
+[
+  {
+    "route": "/",
+    "performance": 98,
+    "accessibility": 100,
+    "report": "lighthouse/home.html",
+    "timestamp": "2026-10-19T20:04:03.213Z"
+  },
+  {
+    "route": "/work",
+    "performance": 99,
+    "accessibility": 100,
+    "report": "lighthouse/work.html",
+    "timestamp": "2026-10-19T20:04:15.119Z"
+  },
+  {
+    "route": "/services",
+    "performance": 98,
+    "accessibility": 100,
+    "report": "lighthouse/services.html",
+    "timestamp": "2026-10-19T20:04:24.029Z"
+  },
+  {
+    "route": "/services/branding",
+    "performance": 96,
+    "accessibility": 100,
+    "report": "lighthouse/services-branding.html",
+    "timestamp": "2026-10-19T20:04:33.590Z"
+  },
+  {
+    "route": "/services/marketing-strategy",
+    "performance": 95,
+    "accessibility": 100,
+    "report": "lighthouse/services-marketing-strategy.html",
+    "timestamp": "2026-10-19T20:04:43.428Z"
+  },
+  {
+    "route": "/services/website-development",
+    "performance": 98,
+    "accessibility": 100,
+    "report": "lighthouse/services-website-development.html",
+    "timestamp": "2026-10-19T20:04:53.065Z"
+  },
+  {
+    "route": "/services/app-development",
+    "performance": 97,
+    "accessibility": 100,
+    "report": "lighthouse/services-app-development.html",
+    "timestamp": "2026-10-19T20:05:02.883Z"
+  },
+  {
+    "route": "/services/performance-marketing",
+    "performance": 96,
+    "accessibility": 100,
+    "report": "lighthouse/services-performance-marketing.html",
+    "timestamp": "2026-10-19T20:05:12.806Z"
+  },
+  {
+    "route": "/services/social-media",
+    "performance": 96,
+    "accessibility": 100,
+    "report": "lighthouse/services-social-media.html",
+    "timestamp": "2026-10-19T20:05:22.572Z"
+  },
+  {
+    "route": "/services/creative-campaigns",
+    "performance": 95,
+    "accessibility": 100,
+    "report": "lighthouse/services-creative-campaigns.html",
+    "timestamp": "2026-10-19T20:05:32.178Z"
+  },
+  {
+    "route": "/work/etpra-group",
+    "performance": 96,
+    "accessibility": 100,
+    "report": "lighthouse/work-etpra-group.html",
+    "timestamp": "2026-10-19T20:05:41.977Z"
+  },
+  {
+    "route": "/work/hills-polymers",
+    "performance": 96,
+    "accessibility": 100,
+    "report": "lighthouse/work-hills-polymers.html",
+    "timestamp": "2026-10-19T20:05:51.533Z"
+  },
+  {
+    "route": "/work/india-career-counseling",
+    "performance": 96,
+    "accessibility": 100,
+    "report": "lighthouse/work-india-career-counseling.html",
+    "timestamp": "2026-10-19T20:06:01.250Z"
+  },
+  {
+    "route": "/work/loka-samabaya-pratisthan",
+    "performance": 98,
+    "accessibility": 100,
+    "report": "lighthouse/work-loka-samabaya-pratisthan.html",
+    "timestamp": "2026-10-19T20:06:11.192Z"
+  },
+  {
+    "route": "/about",
+    "performance": 98,
+    "accessibility": 100,
+    "report": "lighthouse/about.html",
+    "timestamp": "2026-10-19T20:06:20.819Z"
+  },
+  {
+    "route": "/insights",
+    "performance": 98,
+    "accessibility": 100,
+    "report": "lighthouse/insights.html",
+    "timestamp": "2026-10-19T20:06:31.089Z"
+  },
+  {
+    "route": "/contact",
+    "performance": 98,
+    "accessibility": 100,
+    "report": "lighthouse/contact.html",
+    "timestamp": "2026-10-19T20:06:40.532Z"
+  }
+]

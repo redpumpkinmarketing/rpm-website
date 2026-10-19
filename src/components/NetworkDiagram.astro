@@ -1,0 +1,8 @@
+---
+import Icon from './Icon.astro';
+const nodes=[['Custom websites','web'],['Applications','app'],['CRM & dashboards','chart'],['Connected business workflows','network']];
+---
+<div class="network-diagram" data-scroll-progress>
+ <svg class="network-wires" viewBox="0 0 1000 400" preserveAspectRatio="none" aria-hidden="true"><path class="wire-base" d="M125 130H375V270H625V130H875M125 130V340H875V130"/><path class="wire-draw" pathLength="1" d="M125 130H375V270H625V130H875M125 130V340H875V130"/></svg>
+ <div class="network-nodes">{nodes.map(([label,icon],i)=><div class={'network-node node-'+i}><span class="node-icon"><Icon name={icon}/></span><h3>{label}</h3></div>)}</div>
+</div>

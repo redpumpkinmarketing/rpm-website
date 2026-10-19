@@ -1,0 +1,18 @@
+---
+import TextLink from './TextLink.astro';
+import Marquee from './Marquee.astro';
+import SocialLinks from './SocialLinks.astro';
+
+import { navigation, services, contactEmail, contactCity, whatsappNumber, emailHref, whatsappHref } from '../data/site';
+---
+<footer class="site-footer ink" data-home-section="12" aria-label="Footer">
+  <Marquee text="Let's make something worth noticing."/><div class="container footer-grid">
+    <div class="footer-identity"><a href="/"><img src="/brand/RPM-Horizontal-Reverse.svg" alt="Red Pumpkin Marketing" width="300" height="80" loading="lazy" /></a><p class="footer-tagline">Made to stand out.<br />Built to grow.</p><p>An independent India-based creative, marketing and technology agency bringing together brand thinking, digital experiences and purposeful communication.</p></div>
+    <div><h2 class="eyebrow">Explore</h2><nav aria-label="Footer navigation">{[['Home','/'],...navigation,['Contact','/contact']].map(([label,href])=><a href={href}>{label}</a>)}</nav></div>
+    <div><h2 class="eyebrow">Our capabilities</h2><nav aria-label="Services">{services.map(s=><a href={'/services/'+s.slug}>{s.name}</a>)}</nav></div>
+    <div><h2 class="eyebrow">Start a conversation</h2><p>Have a business challenge or creative idea worth discussing?</p><address><a href={emailHref}>{contactEmail || "Email address to be added"}</a><a href={whatsappHref}>{/^\d{7,15}$/.test(whatsappNumber)?"WhatsApp +"+whatsappNumber:"WhatsApp number to be added"}</a><p>{contactCity || "City to be confirmed"}, India</p></address><SocialLinks/><TextLink class="text-link" href="/contact">Get in Touch <span aria-hidden="true">↗</span></TextLink></div>
+  </div>
+  <div class="container footer-bottom"><p>© {new Date().getFullYear()} Red Pumpkin Marketing. All rights reserved.</p><p>Different minds. Bold ideas. Real work.</p><a href="#top">Back to Top ↑</a></div>
+</footer>
+
+

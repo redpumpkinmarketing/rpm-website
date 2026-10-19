@@ -1,0 +1,211 @@
+[
+  {
+    "width": 1440,
+    "route": "/",
+    "violations": [],
+    "incomplete": 2
+  },
+  {
+    "width": 1440,
+    "route": "/work",
+    "violations": [],
+    "incomplete": 2
+  },
+  {
+    "width": 1440,
+    "route": "/services",
+    "violations": [],
+    "incomplete": 2
+  },
+  {
+    "width": 1440,
+    "route": "/services/branding",
+    "violations": [],
+    "incomplete": 2
+  },
+  {
+    "width": 1440,
+    "route": "/services/marketing-strategy",
+    "violations": [],
+    "incomplete": 2
+  },
+  {
+    "width": 1440,
+    "route": "/services/website-development",
+    "violations": [],
+    "incomplete": 2
+  },
+  {
+    "width": 1440,
+    "route": "/services/app-development",
+    "violations": [],
+    "incomplete": 2
+  },
+  {
+    "width": 1440,
+    "route": "/services/performance-marketing",
+    "violations": [],
+    "incomplete": 2
+  },
+  {
+    "width": 1440,
+    "route": "/services/social-media",
+    "violations": [],
+    "incomplete": 2
+  },
+  {
+    "width": 1440,
+    "route": "/services/creative-campaigns",
+    "violations": [],
+    "incomplete": 2
+  },
+  {
+    "width": 1440,
+    "route": "/work/etpra-group",
+    "violations": [],
+    "incomplete": 2
+  },
+  {
+    "width": 1440,
+    "route": "/work/hills-polymers",
+    "violations": [],
+    "incomplete": 2
+  },
+  {
+    "width": 1440,
+    "route": "/work/india-career-counseling",
+    "violations": [],
+    "incomplete": 2
+  },
+  {
+    "width": 1440,
+    "route": "/work/loka-samabaya-pratisthan",
+    "violations": [],
+    "incomplete": 2
+  },
+  {
+    "width": 1440,
+    "route": "/about",
+    "violations": [],
+    "incomplete": 2
+  },
+  {
+    "width": 1440,
+    "route": "/insights",
+    "violations": [],
+    "incomplete": 2
+  },
+  {
+    "width": 1440,
+    "route": "/contact",
+    "violations": [],
+    "incomplete": 2
+  },
+  {
+    "width": 390,
+    "route": "/",
+    "violations": [],
+    "incomplete": 3
+  },
+  {
+    "width": 390,
+    "route": "/work",
+    "violations": [],
+    "incomplete": 3
+  },
+  {
+    "width": 390,
+    "route": "/services",
+    "violations": [],
+    "incomplete": 3
+  },
+  {
+    "width": 390,
+    "route": "/services/branding",
+    "violations": [],
+    "incomplete": 3
+  },
+  {
+    "width": 390,
+    "route": "/services/marketing-strategy",
+    "violations": [],
+    "incomplete": 3
+  },
+  {
+    "width": 390,
+    "route": "/services/website-development",
+    "violations": [],
+    "incomplete": 3
+  },
+  {
+    "width": 390,
+    "route": "/services/app-development",
+    "violations": [],
+    "incomplete": 3
+  },
+  {
+    "width": 390,
+    "route": "/services/performance-marketing",
+    "violations": [],
+    "incomplete": 3
+  },
+  {
+    "width": 390,
+    "route": "/services/social-media",
+    "violations": [],
+    "incomplete": 3
+  },
+  {
+    "width": 390,
+    "route": "/services/creative-campaigns",
+    "violations": [],
+    "incomplete": 3
+  },
+  {
+    "width": 390,
+    "route": "/work/etpra-group",
+    "violations": [],
+    "incomplete": 3
+  },
+  {
+    "width": 390,
+    "route": "/work/hills-polymers",
+    "violations": [],
+    "incomplete": 3
+  },
+  {
+    "width": 390,
+    "route": "/work/india-career-counseling",
+    "violations": [],
+    "incomplete": 3
+  },
+  {
+    "width": 390,
+    "route": "/work/loka-samabaya-pratisthan",
+    "violations": [],
+    "incomplete": 3
+  },
+  {
+    "width": 390,
+    "route": "/about",
+    "violations": [],
+    "incomplete": 3
+  },
+  {
+    "width": 390,
+    "route": "/insights",
+    "violations": [],
+    "incomplete": 3
+  },
+  {
+    "width": 390,
+    "route": "/contact",
+    "violations": [],
+    "incomplete": 3
+  },
+  {
+    "width": 390,
+    "route": "menu open",
+    "violations": []
+  }
+]

@@ -1,0 +1,5 @@
+---
+import {socialLinks} from '../data/site';
+const icons={Instagram:'M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4ZM16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0ZM17 7h.01',LinkedIn:'M4 9v11M4 4v.01M10 20V9M10 14c0-6 10-6 10 0v6',Facebook:'M14 21V11h4l1-4h-5V5c0-2 2-2 5-2M9 11h5'};
+---
+<ul class="social-links" aria-label="Social media">{Object.entries(socialLinks).map(([name,href])=>{const valid=/^https:\/\//.test(href);const Tag=valid?'a':'span';return <li><Tag href={valid?href:undefined} aria-label={valid?name:`${name} — link to be added`} class:list={{'social-placeholder':!valid}}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={icons[name as keyof typeof icons]}/></svg><span>{name}</span>{!valid&&<small>Link to be added</small>}</Tag></li>;})}</ul>

@@ -1,0 +1,38 @@
+---
+import { navigation, services } from '../data/site';
+import Button from './Button.astro';
+const path = Astro.url.pathname;
+---
+<header class="site-header" id="top">
+  <a class="brand" href="/" aria-label="Red Pumpkin Marketing — Home">
+    <img class="brand-full" src="/brand/RPM-Horizontal-Primary.svg" alt="Red Pumpkin Marketing" width="300" height="80" fetchpriority="high" />
+    <img class="brand-small" src="/brand/RPM-Icon-Crimson.svg" alt="Red Pumpkin Marketing" width="48" height="48" />
+  </a>
+  <nav class="nav-capsule" aria-label="Main navigation">{navigation.map(([label,href]) => <a href={href} aria-current={path === href || path.startsWith(href+'/') ? 'page' : undefined}>{label}</a>)}</nav>
+  <div class="header-actions"><button class="menu-trigger" aria-haspopup="dialog" aria-controls="mobile-menu"><span aria-hidden="true">☰</span> Menu</button><Button href="/contact">Start a Project</Button></div>
+</header>
+<dialog id="mobile-menu" class="mobile-menu" aria-labelledby="menu-title">
+  <div class="menu-heading"><span id="menu-title">Explore RPM</span><button class="menu-close" autofocus aria-label="Close menu">Close ×</button></div>
+  <nav aria-label="Mobile navigation">{navigation.map(([label,href]) => <a href={href} aria-current={path === href || path.startsWith(href+'/') ? 'page' : undefined}>{label}<span aria-hidden="true">↗</span></a>)}<a href="/contact" aria-current={path === '/contact' ? 'page' : undefined}>Contact <span aria-hidden="true">↗</span></a></nav>
+  <details><summary>Our seven services</summary><div class="mobile-services">{services.map(s => <a href={'/services/'+s.slug} aria-current={path === '/services/'+s.slug ? 'page' : undefined}>{s.name}</a>)}</div></details>
+  <p>Made to stand out. Built to grow.</p>
+</dialog>
+<script>
+const menu = document.querySelector<HTMLDialogElement>('#mobile-menu')!;
+const trigger = document.querySelector<HTMLButtonElement>('.menu-trigger')!;
+trigger.addEventListener('click',()=>{menu.showModal();document.body.classList.add('menu-open');});
+menu.querySelector('.menu-close')?.addEventListener('click',()=>menu.close());
+menu.addEventListener('keydown',e=>{
+ if(e.key!=='Tab')return;
+ const focusable=[...menu.querySelectorAll<HTMLElement>('a[href],button,summary,input,select,textarea,[tabindex]')].filter(el=>el.tabIndex>=0&&!el.hasAttribute('disabled')&&el.getClientRects().length>0&&(!el.closest('details:not([open])')||el.matches('summary')));
+ const first=focusable[0],last=focusable[focusable.length-1];
+ if(e.shiftKey&&document.activeElement===first){e.preventDefault();last?.focus();}
+ else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first?.focus();}
+});
+menu.addEventListener('click',e=>{
+ const bounds=menu.getBoundingClientRect();
+ if(e.target===menu && (e.clientX<bounds.left || e.clientX>bounds.right || e.clientY<bounds.top || e.clientY>bounds.bottom))menu.close();
+});
+menu.addEventListener('close',()=>{document.body.classList.remove('menu-open');trigger.focus();});
+matchMedia('(min-width: 1101px)').addEventListener('change',e=>{if(e.matches&&menu.open)menu.close();});
+</script>

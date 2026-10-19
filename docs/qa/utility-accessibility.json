@@ -1,0 +1,32 @@
+[
+  {
+    "route": "/404.html",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/404.html",
+    "width": 1440,
+    "violations": []
+  },
+  {
+    "route": "/design-foundation",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/design-foundation",
+    "width": 1440,
+    "violations": []
+  },
+  {
+    "route": "/insights-template",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/insights-template",
+    "width": 1440,
+    "violations": []
+  }
+]

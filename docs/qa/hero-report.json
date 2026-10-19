@@ -1,0 +1,126 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "width": 1280,
+      "height": 600,
+      "headline": {
+        "top": 127.578125,
+        "bottom": 320.75,
+        "left": 58.875,
+        "right": 645.828125
+      },
+      "buttons": [
+        {
+          "top": 431.25,
+          "bottom": 481.25,
+          "left": 58.875,
+          "right": 219.125
+        },
+        {
+          "top": 431.25,
+          "bottom": 481.25,
+          "left": 231.125,
+          "right": 422.15625
+        }
+      ],
+      "overflow": false,
+      "grey": 40,
+      "eyebrow": "12px",
+      "paragraph": "17px",
+      "entry": "0.4s",
+      "entryDelay": "1.05s"
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "headline": {
+        "top": 184.375,
+        "bottom": 434.3125,
+        "left": 62.84375,
+        "right": 689.234375
+      },
+      "buttons": [
+        {
+          "top": 554.8125,
+          "bottom": 604.8125,
+          "left": 62.84375,
+          "right": 223.09375
+        },
+        {
+          "top": 554.8125,
+          "bottom": 604.8125,
+          "left": 235.09375,
+          "right": 426.125
+        }
+      ],
+      "overflow": false,
+      "grey": 40,
+      "eyebrow": "12px",
+      "paragraph": "17px",
+      "entry": "0.4s",
+      "entryDelay": "1.05s"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "headline": {
+        "top": 232.75,
+        "bottom": 574.421875,
+        "left": 300,
+        "right": 960.375
+      },
+      "buttons": [
+        {
+          "top": 708.421875,
+          "bottom": 758.421875,
+          "left": 300,
+          "right": 460.25
+        },
+        {
+          "top": 708.421875,
+          "bottom": 758.421875,
+          "left": 472.25,
+          "right": 663.28125
+        }
+      ],
+      "overflow": false,
+      "grey": 40,
+      "eyebrow": "12px",
+      "paragraph": "20px",
+      "entry": "0.4s",
+      "entryDelay": "1.05s"
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "headline": {
+        "top": 142,
+        "bottom": 295.75,
+        "left": 20,
+        "right": 370
+      },
+      "buttons": [
+        {
+          "top": 435.75,
+          "bottom": 483.75,
+          "left": 20,
+          "right": 162.25
+        },
+        {
+          "top": 435.75,
+          "bottom": 483.75,
+          "left": 172.25,
+          "right": 345.28125
+        }
+      ],
+      "overflow": false,
+      "grey": 40,
+      "eyebrow": "12px",
+      "paragraph": "17px",
+      "entry": "0.4s",
+      "entryDelay": "1.05s"
+    }
+  ],
+  "errors": []
+}

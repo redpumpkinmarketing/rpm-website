@@ -1,0 +1,42 @@
+---
+import ArchField from '../components/ArchField.astro';
+import Marquee from '../components/Marquee.astro';
+import '../styles/hero.css';
+import SectionHeader from '../components/SectionHeader.astro';
+import ClosingCTA from '../components/ClosingCTA.astro';
+import Eyebrow from '../components/Eyebrow.astro';
+import TextLink from '../components/TextLink.astro';
+
+import NetworkDiagram from '../components/NetworkDiagram.astro';
+import WorldMap from '../components/WorldMap.astro';
+import '../styles/home-sections.css';
+import Icon from '../components/Icon.astro';
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+import Projects from '../components/Projects.astro';
+import Services from '../components/Services.astro';
+import { homepage as h, pages, projects, whatsappHref } from '../data/site';
+const p = pages[0];
+const principles = h[6].lines.slice(3,7).map(l=>l.split(': '));
+const steps = h[7].lines.slice(2,8).map(l=>l.replace(/^\d+ /,'').split(' — '));
+---
+<Layout {...p}>
+  <section class="hero hero-signature container" data-home-section="01" aria-labelledby="hero-title">
+    <div class="hero-copy"><Eyebrow text={h[0].eyebrow}/><h1 id="hero-title">Brands aren't<br/>built to <em>blend in.<svg class="hero-underline" viewBox="0 0 420 24" preserveAspectRatio="none" aria-hidden="true"><path d="M4 15C92 1 263 2 412 10M31 21C137 11 277 11 383 16" pathLength="1"/></svg></em></h1><p class="hero-lead">{h[0].lines[2]}</p><div class="actions"><Button href="/contact">Start a Project</Button><Button href={whatsappHref} secondary>Chat on WhatsApp</Button></div></div>
+    <ArchField/>
+  </section>
+  <div class="hero-service-strip"><Marquee text="Brand Strategy · Websites & Apps · Performance Ads · Social & Content · Creative Campaigns"/></div>
+  <section class="section ink" id="selected-work" data-home-section="02" aria-labelledby="work-title"><div class="container"><SectionHeader eyebrow={h[1].eyebrow} title={h[1].heading} id="work-title"><p>{h[1].lines[2]}</p></SectionHeader><Projects carousel/><TextLink class="text-link section-link" href="/work">Explore Selected Work ↗</TextLink></div></section>
+  <section class="section" data-home-section="03" aria-labelledby="capabilities-title"><div class="container"><div class="section-intro" data-reveal><div><Eyebrow text={h[2].eyebrow}/><h2 id="capabilities-title">Different skills.<br/>Better when they <em>connect.</em></h2></div><div><p>{h[2].lines[2]}</p><TextLink class="text-link" href="/services">Explore All Services ↗</TextLink></div></div><Services editorial/></div></section>
+  <section class="section ink agency" data-home-section="04" aria-labelledby="agency-title"><div class="container agency-grid"><div><Eyebrow text={h[3].eyebrow}/><h2 id="agency-title" data-scroll-words>We don't just make things <em>look good.</em></h2><TextLink class="text-link" href="/about">Get to Know RPM ↗</TextLink></div><div class="agency-copy"><p class="large-copy">{h[3].lines[2]}</p><p>{h[3].lines[3]}</p></div></div></section>
+  <section class="section" data-home-section="05" aria-labelledby="industries-title"><div class="container"><div class="section-intro" data-reveal><div><Eyebrow text={h[4].eyebrow}/><h2 id="industries-title">{h[4].heading}</h2></div><TextLink class="text-link" href="/work">See Our Work ↗</TextLink></div><div class="industries">{projects.map((p,i)=><a href={'/work/'+p.slug}><span class="row-number"><Icon name={['building','factory','education','leaf'][i]}/></span><h3>{p.industry}</h3><p>{h[4].lines[i+2].split(': ')[1].split(' Explore ')[0]}</p><span aria-hidden="true">↗</span></a>)}</div></div></section>
+  <section class="section ink ideas" data-home-section="06" aria-labelledby="ideas-title"><div class="container"><div class="section-intro" data-reveal><div><Eyebrow text={h[5].eyebrow}/><h2 id="ideas-title">{h[5].heading}</h2></div><div><p>{h[5].lines[2]}</p><p>{h[5].lines[3]}</p><TextLink class="text-link" href="/services#digital-technology">Explore Digital & Technology ↗</TextLink></div></div><NetworkDiagram/></div></section>
+  <section class="section standards" data-home-section="07" aria-labelledby="standard-title"><div class="container"><div class="section-intro" data-reveal><div><Eyebrow text={h[6].eyebrow}/><h2 id="standard-title">{h[6].heading}</h2></div><p>{h[6].lines[2]}</p></div><div class="principles">{principles.map(([title,body],i)=><div><span class="principle-icon" aria-hidden="true"><Icon name={['search','spark','target','network'][i]}/></span><h3>{title}</h3><p>{body}</p></div>)}</div><TextLink class="text-link section-link" href="/about">How We Work ↗</TextLink></div></section>
+  <section class="section method" data-home-section="08" aria-labelledby="method-title"><div class="container"><div class="section-intro" data-reveal><div><Eyebrow text={h[7].eyebrow}/><h2 id="method-title">{h[7].heading}</h2></div><Button href="/contact" secondary>Start a Conversation</Button></div><div class="vine-timeline" data-scroll-progress><div class="vine-rail" aria-hidden="true"><svg viewBox="0 0 40 1000" preserveAspectRatio="none"><path class="vine-base" d="M20 0C2 160 38 280 20 440S2 700 20 830S38 960 20 1000"/><path class="vine-growth" pathLength="1" d="M20 0C2 160 38 280 20 440S2 700 20 830S38 960 20 1000"/></svg></div><ol class="method-track">{steps.map(([title,body],i)=><li><span>0{i+1}</span><Icon name={['search','target','network','pen','launch','chart'][i]}/><h3>{title}</h3><p>{body}</p></li>)}</ol></div></div></section>
+  <section class="section ink international" data-home-section="09" aria-labelledby="international-title"><div class="container international-grid"><WorldMap/><div data-reveal><Eyebrow text={h[8].eyebrow}/><h2 id="international-title">Based in India.<br/><em>Open to the world.</em></h2></div><div><p>{h[8].lines[2]}</p><Button href="/contact">Discuss Your Project</Button></div></div></section>
+  <section class="section perspectives" data-home-section="10" aria-labelledby="perspectives-title"><div class="container"><div class="section-intro" data-reveal><div><Eyebrow text={h[9].eyebrow}/><h2 id="perspectives-title">{h[9].heading}</h2></div><div><p>{h[9].lines[2]}</p><p>{h[9].lines[3]}</p></div></div><div class="editorial-empty"><span class="editorial-symbol" aria-hidden="true">“</span><p>Our first perspectives are taking shape. Until they're ready, explore the projects behind our thinking.</p><TextLink class="text-link" href="/insights">Explore Insights ↗</TextLink></div></div></section>
+  <ClosingCTA home/>
+</Layout>
+<script>import '../scripts/home-sections';</script>
+
+

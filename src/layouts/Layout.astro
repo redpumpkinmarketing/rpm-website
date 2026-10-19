@@ -1,0 +1,23 @@
+---
+import '@fontsource-variable/bricolage-grotesque';
+import '@fontsource-variable/dm-sans';
+import '../styles/global.css';
+import '../styles/creative.css';
+import '../styles/foundation.css';
+import '../styles/motion.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ClosingCTA from '../components/ClosingCTA.astro';
+import MobileContactBar from '../components/MobileContactBar.astro';
+import '../styles/conversion.css';
+interface Props { title: string; description: string; ogTitle?: string; ogDescription?: string; }
+const { title, description, ogTitle = title, ogDescription = description } = Astro.props;
+---
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>{title}</title><meta name="description" content={description}/><meta name="robots" content="noindex, nofollow"/><link rel="canonical" href={new URL(Astro.url.pathname, 'https://redpumpkin.in')}/><meta property="og:type" content="website"/><meta property="og:image" content="https://redpumpkin.in/brand/rpm-social.png"/><meta property="og:image:alt" content="Red Pumpkin Marketing official crimson emblem"/><meta property="og:title" content={ogTitle}/><meta property="og:description" content={ogDescription}/><meta property="og:url" content={new URL(Astro.url.pathname, 'https://redpumpkin.in')}/><meta name="theme-color" content="#F5F4F0"/><link rel="icon" href="/favicon.ico" sizes="any"/><link rel="icon" href="/favicon.svg" type="image/svg+xml"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/><link rel="manifest" href="/site.webmanifest"/></head><body class="film-grain"><a class="skip-link" href="#main">Skip to content</a><Header/><main id="main"><slot />{Astro.url.pathname!=="/" && <ClosingCTA/>}</main><Footer/><MobileContactBar/>
+<div class="rpm-cursor" aria-hidden="true"><span></span></div>
+<script>
+import '../scripts/foundation';
+import '../scripts/motion';
+</script></body></html>
+
+

@@ -1,0 +1,6 @@
+---
+interface Props { text:string; numbered?:boolean; }
+const {text,numbered=true}=Astro.props;
+const label=text.replace(/^\d+\s*[/—–.-]?\s*/, '');
+---
+<p class:list={['eyebrow',{'eyebrow-numbered':numbered}]}><span>{label}</span></p>

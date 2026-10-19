@@ -1,0 +1,6 @@
+---
+interface Props { href?: string; secondary?: boolean; type?: 'button' | 'submit' | 'reset'; disabled?: boolean; class?: string; }
+const { href, secondary = false, type='button', disabled=false, class:className } = Astro.props;
+const Tag = href ? 'a' : 'button';
+---
+<Tag href={href} type={href ? undefined : type} disabled={href ? undefined : disabled} class:list={['button',className,{secondary}]} data-magnetic><span class="button-label"><slot /></span><span class="button-arrow" aria-hidden="true">↗</span></Tag>

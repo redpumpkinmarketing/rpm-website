@@ -1,0 +1,517 @@
+{
+  "passed": true,
+  "routes": 20,
+  "widths": [
+    390,
+    768,
+    1280,
+    1440,
+    1920
+  ],
+  "screenshotCount": 100,
+  "screens": [
+    {
+      "route": "/",
+      "width": 390,
+      "file": "home-390.png"
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "file": "home-768.png"
+    },
+    {
+      "route": "/",
+      "width": 1280,
+      "file": "home-1280.png"
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "file": "home-1440.png"
+    },
+    {
+      "route": "/",
+      "width": 1920,
+      "file": "home-1920.png"
+    },
+    {
+      "route": "/work",
+      "width": 390,
+      "file": "work-390.png"
+    },
+    {
+      "route": "/work",
+      "width": 768,
+      "file": "work-768.png"
+    },
+    {
+      "route": "/work",
+      "width": 1280,
+      "file": "work-1280.png"
+    },
+    {
+      "route": "/work",
+      "width": 1440,
+      "file": "work-1440.png"
+    },
+    {
+      "route": "/work",
+      "width": 1920,
+      "file": "work-1920.png"
+    },
+    {
+      "route": "/services",
+      "width": 390,
+      "file": "services-390.png"
+    },
+    {
+      "route": "/services",
+      "width": 768,
+      "file": "services-768.png"
+    },
+    {
+      "route": "/services",
+      "width": 1280,
+      "file": "services-1280.png"
+    },
+    {
+      "route": "/services",
+      "width": 1440,
+      "file": "services-1440.png"
+    },
+    {
+      "route": "/services",
+      "width": 1920,
+      "file": "services-1920.png"
+    },
+    {
+      "route": "/services/branding",
+      "width": 390,
+      "file": "services-branding-390.png"
+    },
+    {
+      "route": "/services/branding",
+      "width": 768,
+      "file": "services-branding-768.png"
+    },
+    {
+      "route": "/services/branding",
+      "width": 1280,
+      "file": "services-branding-1280.png"
+    },
+    {
+      "route": "/services/branding",
+      "width": 1440,
+      "file": "services-branding-1440.png"
+    },
+    {
+      "route": "/services/branding",
+      "width": 1920,
+      "file": "services-branding-1920.png"
+    },
+    {
+      "route": "/services/marketing-strategy",
+      "width": 390,
+      "file": "services-marketing-strategy-390.png"
+    },
+    {
+      "route": "/services/marketing-strategy",
+      "width": 768,
+      "file": "services-marketing-strategy-768.png"
+    },
+    {
+      "route": "/services/marketing-strategy",
+      "width": 1280,
+      "file": "services-marketing-strategy-1280.png"
+    },
+    {
+      "route": "/services/marketing-strategy",
+      "width": 1440,
+      "file": "services-marketing-strategy-1440.png"
+    },
+    {
+      "route": "/services/marketing-strategy",
+      "width": 1920,
+      "file": "services-marketing-strategy-1920.png"
+    },
+    {
+      "route": "/services/website-development",
+      "width": 390,
+      "file": "services-website-development-390.png"
+    },
+    {
+      "route": "/services/website-development",
+      "width": 768,
+      "file": "services-website-development-768.png"
+    },
+    {
+      "route": "/services/website-development",
+      "width": 1280,
+      "file": "services-website-development-1280.png"
+    },
+    {
+      "route": "/services/website-development",
+      "width": 1440,
+      "file": "services-website-development-1440.png"
+    },
+    {
+      "route": "/services/website-development",
+      "width": 1920,
+      "file": "services-website-development-1920.png"
+    },
+    {
+      "route": "/services/app-development",
+      "width": 390,
+      "file": "services-app-development-390.png"
+    },
+    {
+      "route": "/services/app-development",
+      "width": 768,
+      "file": "services-app-development-768.png"
+    },
+    {
+      "route": "/services/app-development",
+      "width": 1280,
+      "file": "services-app-development-1280.png"
+    },
+    {
+      "route": "/services/app-development",
+      "width": 1440,
+      "file": "services-app-development-1440.png"
+    },
+    {
+      "route": "/services/app-development",
+      "width": 1920,
+      "file": "services-app-development-1920.png"
+    },
+    {
+      "route": "/services/performance-marketing",
+      "width": 390,
+      "file": "services-performance-marketing-390.png"
+    },
+    {
+      "route": "/services/performance-marketing",
+      "width": 768,
+      "file": "services-performance-marketing-768.png"
+    },
+    {
+      "route": "/services/performance-marketing",
+      "width": 1280,
+      "file": "services-performance-marketing-1280.png"
+    },
+    {
+      "route": "/services/performance-marketing",
+      "width": 1440,
+      "file": "services-performance-marketing-1440.png"
+    },
+    {
+      "route": "/services/performance-marketing",
+      "width": 1920,
+      "file": "services-performance-marketing-1920.png"
+    },
+    {
+      "route": "/services/social-media",
+      "width": 390,
+      "file": "services-social-media-390.png"
+    },
+    {
+      "route": "/services/social-media",
+      "width": 768,
+      "file": "services-social-media-768.png"
+    },
+    {
+      "route": "/services/social-media",
+      "width": 1280,
+      "file": "services-social-media-1280.png"
+    },
+    {
+      "route": "/services/social-media",
+      "width": 1440,
+      "file": "services-social-media-1440.png"
+    },
+    {
+      "route": "/services/social-media",
+      "width": 1920,
+      "file": "services-social-media-1920.png"
+    },
+    {
+      "route": "/services/creative-campaigns",
+      "width": 390,
+      "file": "services-creative-campaigns-390.png"
+    },
+    {
+      "route": "/services/creative-campaigns",
+      "width": 768,
+      "file": "services-creative-campaigns-768.png"
+    },
+    {
+      "route": "/services/creative-campaigns",
+      "width": 1280,
+      "file": "services-creative-campaigns-1280.png"
+    },
+    {
+      "route": "/services/creative-campaigns",
+      "width": 1440,
+      "file": "services-creative-campaigns-1440.png"
+    },
+    {
+      "route": "/services/creative-campaigns",
+      "width": 1920,
+      "file": "services-creative-campaigns-1920.png"
+    },
+    {
+      "route": "/work/etpra-group",
+      "width": 390,
+      "file": "work-etpra-group-390.png"
+    },
+    {
+      "route": "/work/etpra-group",
+      "width": 768,
+      "file": "work-etpra-group-768.png"
+    },
+    {
+      "route": "/work/etpra-group",
+      "width": 1280,
+      "file": "work-etpra-group-1280.png"
+    },
+    {
+      "route": "/work/etpra-group",
+      "width": 1440,
+      "file": "work-etpra-group-1440.png"
+    },
+    {
+      "route": "/work/etpra-group",
+      "width": 1920,
+      "file": "work-etpra-group-1920.png"
+    },
+    {
+      "route": "/work/hills-polymers",
+      "width": 390,
+      "file": "work-hills-polymers-390.png"
+    },
+    {
+      "route": "/work/hills-polymers",
+      "width": 768,
+      "file": "work-hills-polymers-768.png"
+    },
+    {
+      "route": "/work/hills-polymers",
+      "width": 1280,
+      "file": "work-hills-polymers-1280.png"
+    },
+    {
+      "route": "/work/hills-polymers",
+      "width": 1440,
+      "file": "work-hills-polymers-1440.png"
+    },
+    {
+      "route": "/work/hills-polymers",
+      "width": 1920,
+      "file": "work-hills-polymers-1920.png"
+    },
+    {
+      "route": "/work/india-career-counseling",
+      "width": 390,
+      "file": "work-india-career-counseling-390.png"
+    },
+    {
+      "route": "/work/india-career-counseling",
+      "width": 768,
+      "file": "work-india-career-counseling-768.png"
+    },
+    {
+      "route": "/work/india-career-counseling",
+      "width": 1280,
+      "file": "work-india-career-counseling-1280.png"
+    },
+    {
+      "route": "/work/india-career-counseling",
+      "width": 1440,
+      "file": "work-india-career-counseling-1440.png"
+    },
+    {
+      "route": "/work/india-career-counseling",
+      "width": 1920,
+      "file": "work-india-career-counseling-1920.png"
+    },
+    {
+      "route": "/work/loka-samabaya-pratisthan",
+      "width": 390,
+      "file": "work-loka-samabaya-pratisthan-390.png"
+    },
+    {
+      "route": "/work/loka-samabaya-pratisthan",
+      "width": 768,
+      "file": "work-loka-samabaya-pratisthan-768.png"
+    },
+    {
+      "route": "/work/loka-samabaya-pratisthan",
+      "width": 1280,
+      "file": "work-loka-samabaya-pratisthan-1280.png"
+    },
+    {
+      "route": "/work/loka-samabaya-pratisthan",
+      "width": 1440,
+      "file": "work-loka-samabaya-pratisthan-1440.png"
+    },
+    {
+      "route": "/work/loka-samabaya-pratisthan",
+      "width": 1920,
+      "file": "work-loka-samabaya-pratisthan-1920.png"
+    },
+    {
+      "route": "/about",
+      "width": 390,
+      "file": "about-390.png"
+    },
+    {
+      "route": "/about",
+      "width": 768,
+      "file": "about-768.png"
+    },
+    {
+      "route": "/about",
+      "width": 1280,
+      "file": "about-1280.png"
+    },
+    {
+      "route": "/about",
+      "width": 1440,
+      "file": "about-1440.png"
+    },
+    {
+      "route": "/about",
+      "width": 1920,
+      "file": "about-1920.png"
+    },
+    {
+      "route": "/insights",
+      "width": 390,
+      "file": "insights-390.png"
+    },
+    {
+      "route": "/insights",
+      "width": 768,
+      "file": "insights-768.png"
+    },
+    {
+      "route": "/insights",
+      "width": 1280,
+      "file": "insights-1280.png"
+    },
+    {
+      "route": "/insights",
+      "width": 1440,
+      "file": "insights-1440.png"
+    },
+    {
+      "route": "/insights",
+      "width": 1920,
+      "file": "insights-1920.png"
+    },
+    {
+      "route": "/contact",
+      "width": 390,
+      "file": "contact-390.png"
+    },
+    {
+      "route": "/contact",
+      "width": 768,
+      "file": "contact-768.png"
+    },
+    {
+      "route": "/contact",
+      "width": 1280,
+      "file": "contact-1280.png"
+    },
+    {
+      "route": "/contact",
+      "width": 1440,
+      "file": "contact-1440.png"
+    },
+    {
+      "route": "/contact",
+      "width": 1920,
+      "file": "contact-1920.png"
+    },
+    {
+      "route": "/design-foundation",
+      "width": 390,
+      "file": "design-foundation-390.png"
+    },
+    {
+      "route": "/design-foundation",
+      "width": 768,
+      "file": "design-foundation-768.png"
+    },
+    {
+      "route": "/design-foundation",
+      "width": 1280,
+      "file": "design-foundation-1280.png"
+    },
+    {
+      "route": "/design-foundation",
+      "width": 1440,
+      "file": "design-foundation-1440.png"
+    },
+    {
+      "route": "/design-foundation",
+      "width": 1920,
+      "file": "design-foundation-1920.png"
+    },
+    {
+      "route": "/insights-template",
+      "width": 390,
+      "file": "insights-template-390.png"
+    },
+    {
+      "route": "/insights-template",
+      "width": 768,
+      "file": "insights-template-768.png"
+    },
+    {
+      "route": "/insights-template",
+      "width": 1280,
+      "file": "insights-template-1280.png"
+    },
+    {
+      "route": "/insights-template",
+      "width": 1440,
+      "file": "insights-template-1440.png"
+    },
+    {
+      "route": "/insights-template",
+      "width": 1920,
+      "file": "insights-template-1920.png"
+    },
+    {
+      "route": "/404.html",
+      "width": 390,
+      "file": "404-390.png"
+    },
+    {
+      "route": "/404.html",
+      "width": 768,
+      "file": "404-768.png"
+    },
+    {
+      "route": "/404.html",
+      "width": 1280,
+      "file": "404-1280.png"
+    },
+    {
+      "route": "/404.html",
+      "width": 1440,
+      "file": "404-1440.png"
+    },
+    {
+      "route": "/404.html",
+      "width": 1920,
+      "file": "404-1920.png"
+    }
+  ],
+  "issues": [],
+  "errors": [],
+  "externalResults": []
+}
